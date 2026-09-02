@@ -1,0 +1,24 @@
+# lefthook.yml (repo root)
+pre-commit:
+  parallel: true
+  commands:
+    # --- formatting: auto-fix and re-stage, never blocks commit ---
+    frontend-format:
+      root: "frontend/"
+      glob: "*.{ts,tsx,css,json,md}"
+      run: npx prettier --write {staged_files}
+      stage_fixed: true
+    backend-format:
+      root: "backend/"
+      glob: "*.go"
+      run: gofmt -l -w {staged_files}
+
+    # --- linting: checks only, blocks commit on failure ---
+    frontend-lint:
+      root: "frontend/"
+      glob: "*.{ts,tsx}"
+      run: npx oxlint {staged_files}
+    backend-lint:
+      root: "backend/"
+      glob: "*.go"
+      run: golangci-lint run {staged_files}
