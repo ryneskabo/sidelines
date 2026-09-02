@@ -12,8 +12,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@types/node": "^24.13.3",
@@ -23,6 +25,7 @@
     "oxlint": "^1.79.0",
     "oxlint-tsgolint": "^7.0.2001",
     "prettier": "^3.9.6",
+    "prettier-plugin-tailwindcss": "^0.8.1",
     "typescript": "~6.0.2",
     "vite": "^8.2.2"
   }

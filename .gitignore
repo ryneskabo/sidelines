@@ -16,7 +16,8 @@ dist-ssr
 # backend
 backend/tmp/
 backend/*.exe
-/backend/server
+backend/server
+backend/out
 
 # Editor directories and files
 .vscode/*
