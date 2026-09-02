@@ -1,0 +1,21 @@
+name: sidelines
+
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: sidelines
+      POSTGRES_PASSWORD: sidelines
+      POSTGRES_DB: sidelines
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sidelines -d sidelines"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  pgdata:

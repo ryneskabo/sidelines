@@ -48,7 +48,7 @@ sidelines/
 
 - Node.js (LTS)
 - Go 1.22+
-- PostgreSQL
+- Docker Desktop (WSL integration enabled) for local PostgreSQL
 - A local Stockfish binary on your `PATH` (or set `STOCKFISH_PATH`)
 
 ### Frontend
@@ -71,10 +71,21 @@ The Vite dev server proxies `/api/*` requests to the Go server at `localhost:808
 
 ### Database
 
+Postgres runs in Docker. Frontend and backend stay on the host for now.
+
 ```bash
-createdb sidelines
-psql sidelines -f backend/migrations/0001_init.sql
+cp .env.example .env   # DATABASE_URL for goose / the Go server
+make db-up
 ```
+
+Wait until `docker compose ps` shows `db` as healthy, then apply migrations (once they exist):
+
+```bash
+set -a && source .env && set +a
+make migrate-up
+```
+
+Stop the database with `make db-down` (`pgdata` is kept). Use `docker compose down -v` only if you want to wipe the volume.
 
 ## Roadmap
 
