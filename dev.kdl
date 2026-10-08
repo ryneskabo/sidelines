@@ -1,0 +1,16 @@
+layout {
+    tab name="frontend" cwd="frontend" {
+        pane split_direction="vertical" {
+            pane
+            pane command="npm" {
+                args "run" "dev"
+            }
+        }
+    }
+    tab name="backend" cwd="backend" {
+        pane split_direction="vertical" {
+            pane
+            pane command="air"
+        }
+    }
+}

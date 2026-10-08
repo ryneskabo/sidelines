@@ -18,6 +18,7 @@ backend/tmp/
 backend/*.exe
 backend/server
 backend/out
+backend/tmp/*
 
 # Editor directories and files
 .vscode/*
