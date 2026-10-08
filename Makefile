@@ -24,3 +24,14 @@ migrate-down:
 
 sqlc-gen:
 	cd backend && sqlc generate
+
+.PHONY: workspace attach clean
+
+workspace: clean
+	zellij --session sidelines --new-session-with-layout ./dev.kdl
+
+attach:
+	zellij attach sidelines
+
+clean:
+	-zellij delete-session --force sidelines 2>/dev/null

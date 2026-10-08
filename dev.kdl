@@ -1,3 +1,5 @@
+// zellij --session sidelines --new-session-with-layout ./dev.kdl
+
 layout {
     tab name="frontend" cwd="frontend" {
         pane split_direction="vertical" {
